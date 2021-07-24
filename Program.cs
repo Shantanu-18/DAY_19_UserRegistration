@@ -8,7 +8,7 @@ namespace DAY_19_UserRegistration
         {
             Console.WriteLine("Welcome to user registration!");
 
-            string FirstName,LastName,email,number;
+            string FirstName,LastName,email,number,password;
             Console.Write("Enter First Name: ");
             FirstName = Console.ReadLine();
             UserRegistration.checkFirstName(FirstName);
@@ -24,6 +24,10 @@ namespace DAY_19_UserRegistration
             Console.Write("Enter your mobile number: ");
             number = Console.ReadLine();
             UserRegistration.checknumber(number);
+
+            Console.Write("Enter your password: ");
+            password = Console.ReadLine();
+            UserRegistration.checkPassword(password);
         }
     }
 }
