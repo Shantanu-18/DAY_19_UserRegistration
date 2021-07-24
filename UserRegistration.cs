@@ -11,6 +11,8 @@ namespace DAY_19_UserRegistration
         public static string Regex_LastName = "^[A-Z][a-z]{2,}$";
         public static string Regex_Email = "^[A-Z0-9a-z]{1,}([.#$^][A-Za-z0-9]+)?[@][A-Za-z]{2,}[.][A-Za-z]{2,3}([.][a-zA-Z]{2})?$";
         public static string Regex_Number = "^[0-9]{2}[ ][6-9][0-9]{9}$";
+        public static string Regex_Password = "^[A-Za-z]{8,}";
+
 
         public static bool ValidateFirstName(string FirstName)
         {
@@ -62,7 +64,20 @@ namespace DAY_19_UserRegistration
         {
             if (Regex.IsMatch(number, Regex_Number) == false)
             {
-                Console.WriteLine("Enter valid email address!");
+                Console.WriteLine("Enter valid number!");
+            }
+        }
+
+        public static bool validatePassword(string password)
+        {
+            return Regex.IsMatch(password, Regex_Password);
+        }
+
+        public static void checkPassword(string password)
+        {
+            if (Regex.IsMatch(password, Regex_Password) == false)
+            {
+                Console.WriteLine("Enter valid password. It should contain minimum 8 character!");
             }
         }
 
