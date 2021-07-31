@@ -14,73 +14,145 @@ namespace DAY_19_UserRegistration
         public static string Regex_Password = "^((?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*-_.])(?=.{8,}))";
 
 
-        public static bool ValidateFirstName(string FirstName)
+        public bool ValidateFirstName(string FirstName)
         {
+            var result = Regex.IsMatch(FirstName, Regex_FirstName);
+            try
+            {
+                if (result==false)
+                {
+                    if (FirstName == string.Empty || FirstName == " ")
+                    {
+                        
+                        throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.NULL_MESSAGE,
+                                "Enter first name it should not be blank.");
+                    }
+                    else if (result == false)
+                    {
+                        throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.INVALID_INPUT,
+                                "Enter valid first name it should start with Capital letter.");
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             return Regex.IsMatch(FirstName, Regex_FirstName);
         }
 
-
-        public static void checkFirstName(string FirstName)
+       
+        public bool ValidateLastName(string LastName)
         {
-            if (Regex.IsMatch(FirstName, Regex_FirstName) == false)
+            var result = Regex.IsMatch(LastName, Regex_LastName);
+            try
             {
-                Console.WriteLine("Enter valid First name. It should Start with capital letters and minimum 3 letters!");
+                if (result == false)
+                {
+                    if (LastName == string.Empty || LastName == " ")
+                    {
+
+                        throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.NULL_MESSAGE,
+                                "Enter last name it should not be blank.");
+                    }
+                    else if (result == false)
+                    {
+                        throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.INVALID_INPUT,
+                                "Enter valid last name it should start with Capital letter.");
+                    }
+                }
             }
-        }
-
-
-        public static bool ValidateLastName(string LastName)
-        {
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            
             return Regex.IsMatch(LastName, Regex_LastName);
         }
 
-        public static void checkLastName(string LastName)
+       
+        public bool validateEmail(string email)
         {
-            if (Regex.IsMatch(LastName, Regex_LastName) == false)
+            var result = Regex.IsMatch(email, Regex_Email);
+            try
             {
-                Console.WriteLine("Enter valid Last name. It should Start with capital letters and minimum 3 letters!");
-            }
-        }
+                if (result == false)
+                {
+                    if (email == string.Empty || email == " ")
+                    {
 
-        public static bool validateEmail(string email)
-        {
+                        throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.NULL_MESSAGE,
+                                "Enter email it should not be blank.");
+                    }
+                    else if (result == false)
+                    {
+                        throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.INVALID_INPUT,
+                                "Enter valid email address.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             return Regex.IsMatch(email, Regex_Email);
         }
-
-        public static void checkemail(string email)
+       
+        public bool validatenumber(string number)
         {
-            if (Regex.IsMatch(email, Regex_Email) == false)
+            var result = Regex.IsMatch(number, Regex_Number);
+            try
             {
-                Console.WriteLine("Enter valid email address!");
-            }
-        }
+                if (result == false)
+                {
+                    if (number == string.Empty || number == " ")
+                    {
 
-        public static bool validatenumber(string number)
-        {
+                        throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.NULL_MESSAGE,
+                                "Enter Phone number it should not be blank.");
+                    }
+                    else if (result == false)
+                    {
+                        throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.INVALID_INPUT,
+                                "Enter valid Phone number.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             return Regex.IsMatch(number, Regex_Number);
         }
 
-        public static void checknumber(string number)
-        {
-            if (Regex.IsMatch(number, Regex_Number) == false)
-            {
-                Console.WriteLine("Enter valid number!");
-            }
-        }
 
-        public static bool validatePassword(string password)
+        public bool validatePassword(string password)
         {
+            var result = Regex.IsMatch(password, Regex_Password);
+            try
+            {
+                if (result == false)
+                {
+                    if (password == string.Empty || password == " ")
+                    {
+
+                        throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.NULL_MESSAGE,
+                                "Enter password it should not be blank.");
+                    }
+                    else if (result == false)
+                    {
+                        throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.INVALID_INPUT,
+                                "Enter valid password.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             return Regex.IsMatch(password, Regex_Password);
         }
 
-        public static void checkPassword(string password)
-        {
-            if (Regex.IsMatch(password, Regex_Password) == false)
-            {
-                Console.WriteLine("Enter valid password. It should contain minimum 8 character," +
-                    "atleast one upper case character and atleast one numeric value and atleast one special character");
-            }
-        }
-
+      
     }
 }
