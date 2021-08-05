@@ -1,3 +1,3 @@
-# DAY_19_UserRegistration
-# DAY_20_Ms Testing
-# DAY_21_Custom exception handling
+# DAY 19 UserRegistration
+# DAY 20 Ms Testing
+# DAY 21 Custom exception handling
